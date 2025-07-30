@@ -51,7 +51,7 @@ export default function Home() {
         {/* Social Links as Buttons */}
         <div className="flex justify-center gap-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/MasFana"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 shadow hover:shadow-md"
@@ -60,7 +60,7 @@ export default function Home() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://linkedin.com/in/adrianfathan"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow hover:shadow-md"
