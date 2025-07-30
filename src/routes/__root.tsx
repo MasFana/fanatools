@@ -10,8 +10,9 @@ export const Route = createRootRoute({
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
 
         <Header />
-
-        <Outlet />
+        <div className='min-h-screen w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)]'>
+          <Outlet />
+        </div>
         <TanStackRouterDevtools />
       </ThemeProvider>
     </>
