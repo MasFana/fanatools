@@ -27,7 +27,7 @@ export interface TikTokResponse extends BaseResponse {
 
 export interface TwitterResponse extends BaseResponse {
     title?: string;
-    url?: string;
+    url?: { hd: string, sd: string }[];
 }
 
 export interface YouTubeResponse extends BaseResponse {

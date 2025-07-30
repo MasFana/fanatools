@@ -11,29 +11,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as PostsPostIdRouteImport } from './routes/posts/$postId'
 import { Route as DownloaderMediaRouteImport } from './routes/downloader/$media'
 
-const AboutLazyRouteImport = createFileRoute('/about')()
-const PostsIndexLazyRouteImport = createFileRoute('/posts/')()
+const IndexLazyRouteImport = createFileRoute('/')()
 const DownloaderIndexLazyRouteImport = createFileRoute('/downloader/')()
 
-const AboutLazyRoute = AboutLazyRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
-const IndexRoute = IndexRouteImport.update({
+const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const PostsIndexLazyRoute = PostsIndexLazyRouteImport.update({
-  id: '/posts/',
-  path: '/posts/',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/posts/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 const DownloaderIndexLazyRoute = DownloaderIndexLazyRouteImport.update({
   id: '/downloader/',
   path: '/downloader/',
@@ -41,11 +28,6 @@ const DownloaderIndexLazyRoute = DownloaderIndexLazyRouteImport.update({
 } as any).lazy(() =>
   import('./routes/downloader/index.lazy').then((d) => d.Route),
 )
-const PostsPostIdRoute = PostsPostIdRouteImport.update({
-  id: '/posts/$postId',
-  path: '/posts/$postId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DownloaderMediaRoute = DownloaderMediaRouteImport.update({
   id: '/downloader/$media',
   path: '/downloader/$media',
@@ -53,87 +35,42 @@ const DownloaderMediaRoute = DownloaderMediaRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutLazyRoute
+  '/': typeof IndexLazyRoute
   '/downloader/$media': typeof DownloaderMediaRoute
-  '/posts/$postId': typeof PostsPostIdRoute
   '/downloader': typeof DownloaderIndexLazyRoute
-  '/posts': typeof PostsIndexLazyRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutLazyRoute
+  '/': typeof IndexLazyRoute
   '/downloader/$media': typeof DownloaderMediaRoute
-  '/posts/$postId': typeof PostsPostIdRoute
   '/downloader': typeof DownloaderIndexLazyRoute
-  '/posts': typeof PostsIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutLazyRoute
+  '/': typeof IndexLazyRoute
   '/downloader/$media': typeof DownloaderMediaRoute
-  '/posts/$postId': typeof PostsPostIdRoute
   '/downloader/': typeof DownloaderIndexLazyRoute
-  '/posts/': typeof PostsIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/downloader/$media'
-    | '/posts/$postId'
-    | '/downloader'
-    | '/posts'
+  fullPaths: '/' | '/downloader/$media' | '/downloader'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/downloader/$media'
-    | '/posts/$postId'
-    | '/downloader'
-    | '/posts'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/downloader/$media'
-    | '/posts/$postId'
-    | '/downloader/'
-    | '/posts/'
+  to: '/' | '/downloader/$media' | '/downloader'
+  id: '__root__' | '/' | '/downloader/$media' | '/downloader/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutLazyRoute: typeof AboutLazyRoute
+  IndexLazyRoute: typeof IndexLazyRoute
   DownloaderMediaRoute: typeof DownloaderMediaRoute
-  PostsPostIdRoute: typeof PostsPostIdRoute
   DownloaderIndexLazyRoute: typeof DownloaderIndexLazyRoute
-  PostsIndexLazyRoute: typeof PostsIndexLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/posts/': {
-      id: '/posts/'
-      path: '/posts'
-      fullPath: '/posts'
-      preLoaderRoute: typeof PostsIndexLazyRouteImport
+      preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/downloader/': {
@@ -141,13 +78,6 @@ declare module '@tanstack/react-router' {
       path: '/downloader'
       fullPath: '/downloader'
       preLoaderRoute: typeof DownloaderIndexLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/posts/$postId': {
-      id: '/posts/$postId'
-      path: '/posts/$postId'
-      fullPath: '/posts/$postId'
-      preLoaderRoute: typeof PostsPostIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/downloader/$media': {
@@ -161,12 +91,9 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutLazyRoute: AboutLazyRoute,
+  IndexLazyRoute: IndexLazyRoute,
   DownloaderMediaRoute: DownloaderMediaRoute,
-  PostsPostIdRoute: PostsPostIdRoute,
   DownloaderIndexLazyRoute: DownloaderIndexLazyRoute,
-  PostsIndexLazyRoute: PostsIndexLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

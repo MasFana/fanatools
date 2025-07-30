@@ -39,13 +39,6 @@ export const ListDownloaders: ListDownloader[] = [
     color: 'bg-black',
   },
   {
-    name: 'Facebook',
-    path: '/downloader/facebook',
-    description: 'Download videos from Facebook posts and reels',
-    icon: <Facebook className="w-5 h-5" />,
-    color: 'bg-blue-600',
-  },
-  {
     name: 'Twitter/X',
     path: '/downloader/twitter',
     description: 'Download videos and GIFs from Twitter/X',
@@ -53,11 +46,11 @@ export const ListDownloaders: ListDownloader[] = [
     color: 'bg-blue-400',
   },
   {
-    name: 'CapCut',
-    path: '/downloader/capcut',
-    description: 'Download templates and videos from CapCut',
-    icon: <Image className="w-5 h-5" />,
-    color: 'bg-purple-500',
+    name: 'Facebook',
+    path: '/downloader/facebook',
+    description: 'Download videos from Facebook posts and reels',
+    icon: <Facebook className="w-5 h-5" />,
+    color: 'bg-blue-600',
   },
   {
     name: 'Pinterest',
@@ -65,34 +58,18 @@ export const ListDownloaders: ListDownloader[] = [
     description: 'Download images and videos from Pinterest',
     icon: <Image className="w-5 h-5" />,
     color: 'bg-red-600',
-  },
-  {
-    name: 'MediaFire',
-    path: '/downloader/mediafire',
-    description: 'Download files from MediaFire links',
-    icon: <HardDrive className="w-5 h-5" />,
-    color: 'bg-orange-500',
-  },
-  {
-    name: 'Google Drive',
-    path: '/downloader/google-drive',
-    description: 'Download files from Google Drive',
-    icon: <HardDrive className="w-5 h-5" />,
-    color: 'bg-green-500',
-  },
+  }
 ]
 
-export function IndexDownloaderPage({ notIndex }: { notIndex?: boolean }) {
+export function IndexDownloaderPage() {
   return (
-    <div className="container py-8 mx-auto">
-      {!notIndex &&
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Social Media Downloader</h1>
-          <p className="text-muted-foreground">
-            Download content from various platforms with ease
-          </p>
-        </div>
-      }
+    <div className="container py-8 mx-auto text-center">
+      <div className="mb-8 ">
+        <h1 className="text-3xl font-bold tracking-tight">MasFana's Social Media Downloader</h1>
+        <p className="text-muted-foreground">
+          Download content from various platforms with ease
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {ListDownloaders.map((downloader) => (
