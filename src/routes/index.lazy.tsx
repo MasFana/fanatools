@@ -39,7 +39,7 @@ const tools = [
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <section className="mb-12 text-center">
+      <section className="my-12 text-center">
         <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
           MasFana's Web Tools
         </h1>
