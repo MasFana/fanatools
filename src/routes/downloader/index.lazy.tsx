@@ -1,5 +1,5 @@
 import { createLazyFileRoute, Link } from '@tanstack/react-router'
-import { Facebook, Instagram, Twitter, Music2, Youtube, HardDrive, Image, Download } from 'lucide-react'
+import { Facebook, Instagram, Twitter, Music2, Youtube, Image, Download } from 'lucide-react'
 import type { ReactElement } from 'react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'

@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { ModeToggle } from './mode-toggle'
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from './ui/navigation-menu'
-import { Menu, X } from 'lucide-react'
+import { Menu} from 'lucide-react'
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet'
 import { cn } from '@/lib/utils'
@@ -48,7 +48,7 @@ export default function Header() {
                 Menu MasFana's
               </SheetTitle>
               <SheetDescription>
-                Menu kumpulan tools MasFana
+                Collenction of tools by MasFana
               </SheetDescription>
             </SheetHeader>
             {routes.map((route) => {
