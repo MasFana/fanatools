@@ -101,6 +101,12 @@ export function DownloaderPage() {
     }
   }
 
+
+  const handleReset = () => {
+    setUrl('')
+    setResults([])
+  }
+
   const handleClear = () => {
     setUrl('')
     setError(null)
@@ -238,7 +244,7 @@ export function DownloaderPage() {
           </div>
         )}
       </div>
-      <IndexDownloaderPage />
+      <IndexDownloaderPage handleReset={handleReset}/>
     </>
   )
 }

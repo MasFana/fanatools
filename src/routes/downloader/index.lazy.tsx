@@ -61,7 +61,7 @@ export const ListDownloaders: ListDownloader[] = [
   }
 ]
 
-export function IndexDownloaderPage() {
+export function IndexDownloaderPage({ handleReset = function () { } }) {
   return (
     <div className="container py-8 mx-auto text-center">
       <div className="mb-8 ">
@@ -86,7 +86,7 @@ export function IndexDownloaderPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <Button asChild className="w-full" variant="outline">
+              <Button asChild className="w-full" variant="outline" onClick={handleReset}>
                 <Link to={downloader.path}>
                   <Download className="mr-2 h-4 w-4" />
                   Open Downloader
