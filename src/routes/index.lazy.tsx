@@ -3,7 +3,7 @@ import { createLazyFileRoute } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Download } from 'lucide-react'
+import { Download, Github, Linkedin } from 'lucide-react'
 
 export const Route = createLazyFileRoute('/')({
   component: Home,
@@ -43,12 +43,35 @@ export default function Home() {
         <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
           MasFana's Web Tools
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
           A collection of useful web tools to make your online tasks easier.
           More tools coming soon!
         </p>
+
+        {/* Social Links as Buttons */}
+        <div className="flex justify-center gap-4">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 shadow hover:shadow-md"
+          >
+            <Github className="h-5 w-5" />
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow hover:shadow-md"
+          >
+            <Linkedin className="h-5 w-5" />
+            LinkedIn
+          </a>
+        </div>
       </section>
 
+      {/* Rest of your existing content... */}
       <section>
         <h2 className="text-2xl font-semibold mb-6">Available Tools</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,10 +102,11 @@ export default function Home() {
 
       <section className="mt-16 text-center">
         <h2 className="text-2xl font-semibold mb-4">More Tools Coming</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
           I'm constantly working on adding new tools to this collection.
           If you have any suggestions, feel free to reach out!
         </p>
+
       </section>
     </div>
   )

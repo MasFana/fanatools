@@ -1,6 +1,6 @@
 
 import { useLoaderData } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ClipboardPaste, X, Download, Loader2, Image as ImageIcon, Video, Music2, Youtube, Instagram, Facebook, Twitter } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'

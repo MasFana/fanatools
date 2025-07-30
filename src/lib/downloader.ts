@@ -4,7 +4,6 @@ const { version, author, config } = {
     }, "version": "1.0.1"
 }
 import type {
-    BaseResponse,
     InstagramResponse,
     TikTokResponse,
     TwitterResponse,
