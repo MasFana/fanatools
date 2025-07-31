@@ -21,13 +21,18 @@ export function Downloader(url: string) {
       return igdl(url).then(e => {
         console.log(e.result)
         if (e.result?.[0].url) {
-          return e.result?.map(item => ({
+          
+          const result = e.result?.map(item => ({
             title: '',
             thumbnail: item.thumbnail,
             media: [item.url],
             audio: [],
             file: []
           }))
+
+          return result.filter((obj, index, self) =>
+            index === self.findIndex((t) => t.thumbnail === obj.thumbnail) // Filter dupes
+          );
 
         } else return []
       })

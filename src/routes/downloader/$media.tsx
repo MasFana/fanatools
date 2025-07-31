@@ -105,11 +105,11 @@ export function DownloaderPage() {
   const handleReset = () => {
     setUrl('')
     setResults([])
+    setError(null)
   }
 
   const handleClear = () => {
-    setUrl('')
-    setError(null)
+    handleReset()
   }
 
   const currentService = serviceInfo[media]
@@ -244,7 +244,7 @@ export function DownloaderPage() {
           </div>
         )}
       </div>
-      <IndexDownloaderPage handleReset={handleReset}/>
+      <IndexDownloaderPage handleReset={handleReset} />
     </>
   )
 }
